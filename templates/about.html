@@ -4,12 +4,18 @@ in remder_template it is using that only -->
 <!-- extending the content block here i.e inheriting it
 overrides the plain content block to render this -->
 {% block content %}
-        {% for element in grocery_list %}
+        {% for post in posts %}
 
-        <p> item: {{ element.item }} </p> <!-- note how I'm able to use dot notation for accessing dict item -->
-        <p>qty : {{ element.qty }} </p> <!-- double curly brackets for variables -->
-        <p>price per unit : {{ element.per_unit }}</p>
-        <p> item total : {{ element.total }}</p>
-                <br> <br>
+                <article class="media content-section">
+                  <div class="media-body">
+                    <div class="article-metadata">
+                      <a class="mr-2" href="#">{{ post.author }}</a>
+                      <small class="text-muted">{{ post.date_posted }}</small>
+                    </div>
+                    <h2><a class="article-title" href="#">{{ post.title }}</a></h2>
+                    <p class="article-content">{{ post.content }}</p>
+                  </div>
+                </article>
+                                <br> <br>
         {% endfor %}
 {% endblock content %}

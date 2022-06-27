@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template,url_for
 
 # from flask module we're importing Flask class.
 
@@ -14,18 +14,20 @@ by passing "/" to route we're saying the paths for which everything under this b
 "/" is the current page(root page of our website)
 """
 
-grocery_list = [
+posts = [
     {
-        'item': 'bread',
-        'qty': 1,
-        'per_unit': '$40',
-        'total': '$40'
+        'author': 'Scott Russell',
+        'title': '5 problems with business ideas',
+        'content': 'The 11 best business administration twitter feeds to follow. Why property management companies '
+                   'are on crack about property management companies. Why your interview technique never works out '
+                   'the way you plan. Why do people think stock brokers are a good idea?',
+        'date_posted': 'April 20, 2018'
     },
     {
-        'item': 'eggs',
-        'qty': 6,
-        'per_unit': '$7',
-        'total': '$42'
+        'author': 'Clifford Farmer',
+        'title': '7 problems with food processors',
+        'content': 'The evolution of delicious food. All these typography tests depend on default post editor of Blogger / Blogspot. Thai restaurants in 14 easy steps. Why breakfast casseroles are afraid of the truth.',
+        'date_posted': 'May 18,2021'
     },
     {
         'item': 'mango',
@@ -44,7 +46,7 @@ def hello():
 
 @app.route("/about")
 def about():
-    return render_template('about.html', grocery_list=grocery_list, title='about_page')
+    return render_template('about.html', posts=posts, title='about_page')
 
 
 # return what html you want to render on the page
