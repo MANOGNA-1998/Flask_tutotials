@@ -1,0 +1,29 @@
+<!-- the name of the directory should be templates itself, coz
+in remder_template it is using that only -->
+
+
+<!doctype html>
+<html lang="en">
+<head>
+
+
+        {% if title %}
+                <title> tile: {{ title }} </title>
+                <!-- inside of html tag varialbe is inside {{title}} i.e {{variable}}-->
+
+        {%  else %}
+                <title> title of page</title>
+        {% endif %}
+
+</head>
+<body>
+        {% for element in grocery_list %}
+                <br> <br>
+        <p> item: {{ element.item }} </p> <!-- note how I'm able to use dot notation for accessing dict item -->
+        <p>qty : {{ element.qty }} </p> <!-- double curly brackets for variables -->
+        <p>price per unit : {{ element.per_unit }}</p>
+
+        <p> item total : {{ element.total }}</p>
+        {% endfor %}
+</body>
+</html>
