@@ -1,20 +1,8 @@
 <!-- the name of the directory should be templates itself, coz
 in remder_template it is using that only -->
-
-
-<!doctype html>
-<html lang="en">
-<head>
-        {% if title %}
-                <title> tile: {{ title }} </title>
-                <!-- inside of html tag varialbe is inside {{title}} i.e {{variable}}-->
-        {%  else %}
-                <title> title of page</title>
-        {% endif %}
-
-</head>
-<body>
+{% extends "layout.html" %}
+<!-- extending the content block here i.e inheriting it
+overrides the plain content block to render this -->
+{% block content %}
 <h1> welcome to home page</h1>
-
-</body>
-</html>
+{% endblock content %}

@@ -1,0 +1,27 @@
+<!-- the name of the directory should be templates itself, coz
+in remder_template it is using that only -->
+
+
+<!doctype html>
+<html lang="en">
+<head>
+
+
+        {% if title %}
+                <title> tile: {{ title }} </title>
+                <!-- inside of html tag varialbe is inside {{title}} i.e {{variable}}-->
+
+        {%  else %}
+                <title> title of page</title>
+        {% endif %}
+
+</head>
+
+<body>
+<!-- the name of the block is content, I'm creating a plain block for it's children to override-->
+{% block content %}
+{% endblock content %}
+<!-- writing the blockname (content here) is allowed in jinja2, to avoid confustion
+I could have also written just endblock -->
+</body>
+</html>
